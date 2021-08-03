@@ -1,0 +1,932 @@
+/*Generic Style*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #151515;
+  min-height: 100vh;
+  font-family: "Open Sans", "sans-serif";
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  position: relative;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #ffffff;
+}
+
+aside {
+  display: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  border: none;
+  outline: none;
+  -webkit-text-fill-color: #ffffff;
+  -webkit-box-shadow: 0 0 0px 1000px #303030 inset;
+  box-shadow: 0 0 0px 1000px #303030 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.green-gradient-bg {
+  background-image: linear-gradient(to top, #2bb34f, #7cd235);
+}
+
+.is-bold {
+  font-weight: 800;
+}
+
+.bg-color-brown {
+  background-color: #303030;
+}
+
+.green-color {
+  color: #2bb34f;
+}
+
+.transitioning {
+  overflow: hidden;
+}
+
+.display-none {
+  display: none;
+}
+
+.m-top-62 {
+  margin-top: -62px;
+}
+
+/*Login View Style*/
+
+.container--brown {
+  background-color: #303030;
+}
+
+.login {
+  min-height: 100vh;
+  align-items: initial;
+  width: 100%;
+  display: flex;
+}
+
+.login__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 52px;
+  width: 100%;
+}
+
+.login__title {
+  font-size: 35px;
+  font-weight: 400;
+  letter-spacing: 2.8px;
+  margin-bottom: 6px;
+  margin-top: 45px;
+}
+
+.login__form {
+  width: 100%;
+  padding: 32px 40px 20px 40px;
+}
+
+.login__input {
+  display: flex;
+  flex-direction: row;
+  height: 52px;
+  border: 1px solid #8f8f8f;
+  margin-bottom: 32px;
+  border-radius: 8px;
+}
+
+.login__input:focus-within {
+  border-color: #ffffff;
+}
+
+.login__input__icon {
+  width: 52px;
+}
+
+.login__input__icon--right {
+  border-right: 1px solid #8f8f8f;
+}
+
+.login__input:focus-within > .login__input__icon {
+  border-color: #ffffff;
+}
+
+.login__input__text-container {
+  display: flex;
+  align-items: center;
+  border-radius: 0 8px 8px 0;
+  width: 100%;
+}
+
+.input__text {
+  background-color: #303030;
+  border: none;
+  outline: none;
+  width: 100%;
+  border-radius: 0 8px 8px 0;
+  color: #ffffff;
+  margin: 0 20px;
+  font-size: 14px;
+}
+
+.login__footer__row {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+
+.checkbox {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox__label {
+  color: #929699;
+  font-size: 14px;
+  display: flex;
+}
+
+.checkbox__input {
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border: solid 1px #8f8f8f;
+  border-radius: 4px;
+  margin-right: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.checkbox__input:focus {
+  border: solid 1px #ffffff;
+}
+
+.checkbox__input:checked {
+  background-color: #7cd235;
+  border: solid 1px #7cd235;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkbox__checkmark:after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 7px;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox__input:checked ~ .checkbox__checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox__checkmark:after {
+  width: 6px;
+  height: 13px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+.login-button {
+  border-radius: 8px;
+  font-size: 16px;
+  border: none;
+  color: #ffffff;
+  width: 100px;
+  height: 40px;
+  outline: none;
+}
+
+.login-button:active {
+  background-image: linear-gradient(to top, #2bb34f, #7cd235);
+  border: none;
+  box-shadow: inset 0px 4px 4px rgba(43, 179, 79, 0.63);
+}
+
+.login-button:hover {
+  background-image: linear-gradient(180deg, #7cd235 0%, #7cd235 100%);
+  border: none;
+}
+
+.login-button:focus {
+  background-image: linear-gradient(to top, #2bb34f, #7cd235);
+  border: solid 1px #ffffff;
+}
+
+.login__footer__link {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.division {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 40px;
+}
+.division__line {
+  border-bottom: 2px solid #ffffff;
+  width: 100%;
+}
+
+.division__text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 61px;
+  height: 19px;
+  font-size: 14px;
+  padding: 0 22px;
+}
+
+.smedia-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.smedia-buttons__button {
+  width: 240px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 21px;
+  margin-bottom: 3px;
+  cursor: pointer;
+}
+
+.smedia-buttons__button_icon {
+  height: 40px;
+  width: 46.55px;
+}
+
+.smedia-buttons__button__text {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-left: 22px;
+  margin-bottom: 0;
+}
+
+.smedia-buttons__button:focus {
+  outline: none !important;
+  border: solid 1px #ffffff;
+}
+
+.smedia-buttons__button:focus > .smedia-buttons__button_icon {
+  border-color: #ffffff;
+  border-style: solid;
+  border-width: 1px 0;
+}
+
+.smedia-buttons__button--facebook {
+  background-color: #3b5998;
+}
+
+.smedia-buttons__button--twitter {
+  background-color: #00aced;
+}
+
+.smedia-buttons__button--google {
+  background-color: #c7c7c7;
+}
+
+.smedia-buttons__button_icon--facebook {
+  background-color: #263c68;
+}
+
+.smedia-buttons__button_icon--twitter {
+  background-color: #0695cb;
+}
+
+.smedia-buttons__button_icon--google {
+  background-color: #9d9d9d;
+}
+
+.login__input__icon,
+.smedia-buttons__button_icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 8px 0 0 8px;
+}
+
+/*Main View Style*/
+
+.nav {
+  width: 100%;
+  position: relative;
+  align-items: center;
+  padding: 32px 40px 32px 34px;
+  z-index: 2;
+}
+
+.nav__title {
+  display: none;
+}
+
+.nav__logout {
+  display: none;
+}
+
+.nav__searchbar {
+  margin-top: 22px;
+  width: 100%;
+  height: 40px;
+}
+
+.nav__searchbar__input {
+  width: 100%;
+  height: 100%;
+  font-weight: 300;
+  border-radius: 20px;
+  border: none;
+  background-color: #f1f1f1;
+  color: #a6a6a6;
+  padding: 0 22px;
+}
+
+.nav__profile-img {
+  display: none;
+}
+
+.searchbar-tablet {
+  display: none;
+}
+
+.desktop-container {
+  display: none;
+}
+
+.main__header {
+  width: 100%;
+  padding: 24px 40px 22px 40px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.main__header-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.main__header__title {
+  font-size: 45px;
+  line-height: 110%;
+}
+
+.main__header__subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.view__buttons-container {
+  display: none;
+}
+.card {
+  background-color: #303030;
+  margin-bottom: 24px;
+}
+
+.card__img {
+  min-height: 217px;
+  background: #303030 url(assets/img/login-img.png) no-repeat center;
+  background-size: cover;
+}
+
+.card__content {
+  padding: 10px 40px 17px 40px;
+}
+
+.card__info__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__info__title {
+  font-size: 23px;
+  cursor: pointer;
+}
+
+.info__row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #3d3d3d;
+  margin-bottom: 6.5px;
+}
+
+.info {
+  font-size: 12px;
+  font-weight: 300;
+  color: #939393;
+  margin-bottom: 2.5px;
+}
+
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 13px;
+}
+
+.card__footer__position {
+  font-weight: 700;
+}
+
+.card__footer__button {
+  border: none;
+  border-radius: 10px;
+  width: 47px;
+  height: 24px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-description {
+  display: none;
+}
+
+/*Main View Menu*/
+
+.sidebar {
+  padding: 32px 22.25px 20px 30px;
+  background-color: #151515;
+  width: 100%;
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -769px;
+  flex-grow: 2;
+  transition: all ease-in 0.7s;
+}
+
+.sidebar.show {
+  overflow: visible;
+  transition: all ease-in 0.7s;
+  left: 0;
+  height: 100%;
+}
+
+.sidebar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 73px;
+  width: 100%;
+}
+
+.sidebar__header__title {
+  font-size: 28px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1.74222px;
+  padding-top: 8.75px;
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__nav__title {
+  font-size: 22px;
+  padding-bottom: 11px;
+}
+
+.sidebar__nav__title--is-selected {
+  color: #7cd235;
+}
+
+.sidebar__nav__title--is-selected:hover {
+  color: #7cd235;
+}
+
+.sidebar__nav__links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 22px;
+  margin-bottom: 33px;
+}
+
+.link {
+  font-size: 22px;
+  margin-bottom: 11px;
+  display: flex;
+  align-items: center;
+}
+
+.link:hover,
+.sidebar__nav__title:hover {
+  color: #7cd235;
+}
+
+.link:disabled,
+.sidebar__nav__title:disabled {
+  color: #ffffff;
+}
+
+.link__icon {
+  margin-right: 14px;
+}
+
+.logout {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 100px;
+}
+
+@media screen and (min-width: 768px) {
+  /*Login View*/
+
+  .desktop-container {
+    display: initial;
+  }
+
+  .nav {
+    height: 120px;
+    padding-bottom: 29px;
+  }
+
+  .nav--line-decoration {
+    padding-bottom: 18px;
+    border-bottom: 1px solid #ffffff;
+  }
+
+  .searchbar-tablet {
+    display: flex;
+    position: relative;
+    margin-top: 0;
+    width: 362px;
+  }
+
+  .nav__searchbar__input {
+    padding-left: 61px;
+  }
+
+  #nav__search-button {
+    display: none;
+  }
+
+  .nav__searchbar__icon {
+    position: absolute;
+    top: 13px;
+    left: 20px;
+    color: #a6a6a6;
+  }
+
+  .nav__profile-img {
+    display: initial;
+    border-radius: 50%;
+  }
+
+  .login__title {
+    font-size: 45px;
+    margin-top: 105px;
+  }
+
+  .login__form {
+    padding: 19px 0 20px 0;
+    padding-right: 28.5%;
+    padding-left: 28.5%;
+  }
+
+  .division {
+    padding-right: 28.5%;
+    padding-left: 28.5%;
+  }
+
+  .sidebar {
+    width: 303px;
+    padding: 34px 22.25px 20px 40px;
+  }
+
+  .sidebar__header__icon {
+    display: none;
+  }
+
+  .view__buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    flex-shrink: 3;
+  }
+
+  .view-button {
+    appearance: none;
+    height: 40px;
+    width: 40px;
+    color: #000000;
+    background-color: #515151;
+    border-radius: 10px;
+    border: none;
+    margin-left: 24px;
+  }
+
+  .view-button__icon {
+    position: absolute;
+  }
+
+  .bi-view-stacked {
+    right: 74px;
+    top: 30px;
+  }
+
+  .bi-view-list {
+    right: 10px;
+    top: 32px;
+  }
+
+  #view-stacked:hover > .view-button,
+  #view-list:hover > .view-button {
+    background-color: #7d7d7d;
+  }
+
+  .view-button:disabled {
+    background-color: #303030;
+  }
+
+  .card-container {
+    padding: 0 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .main__header-container {
+    flex-shrink: 0;
+  }
+
+  .main__header {
+    padding-bottom: 30px;
+  }
+
+  /*for stacked view*/
+  .card {
+    width: 48%;
+    min-width: 331px;
+    border-radius: 10px;
+  }
+
+  .card__img {
+    display: flex;
+    flex-grow: 1;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+  }
+
+  .card__content {
+    display: flex;
+    justify-content: space-between;
+    padding: 9.75px 20px 18px 20px;
+  }
+
+  .card__info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .card__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 47px;
+    margin-top: 11px;
+  }
+
+  .date,
+  .genres {
+    padding-left: 10px;
+  }
+
+  /* view list */
+
+  .card.card--list-view {
+    width: 100%;
+  }
+
+  .card__img--list-view {
+    min-height: 315px;
+  }
+
+  .card__content.card__content--list-view {
+    padding: 20px 40px 20px 40px;
+  }
+
+  .card__info__title.card__info__title--list-view {
+    margin-bottom: 17px;
+    font-size: 23px;
+  }
+  .card__info__container.card__info__container--list-view {
+    flex-direction: row;
+  }
+
+  .info__row.info__row--list-view {
+    margin-right: 40px;
+    margin-bottom: 0;
+  }
+
+  .date.date--list-view,
+  .genres.genres--list-view {
+    color: #ffffff;
+  }
+
+  .card__footer.card__footer--list-view {
+    position: relative;
+    margin: 0;
+  }
+
+  .card__footer__position.card__footer__position--list-view {
+    position: absolute;
+    bottom: 0;
+    right: 160px;
+  }
+
+  .game-description.game-description--list-view {
+    display: initial;
+    padding: 0 74px 31px 40px;
+    overflow: none;
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  body {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login {
+    width: 1083px;
+    height: 660px;
+    min-height: initial;
+  }
+
+  .login__title {
+    margin-top: 34px;
+  }
+
+  .login__form {
+    padding: 19px 0 47px 0;
+    padding-right: 23.8%;
+    padding-left: 23.8%;
+  }
+
+  .login__content {
+    width: 58%;
+    height: 100%;
+  }
+
+  .login__input {
+    margin-bottom: 20px;
+  }
+
+  .division {
+    padding-right: 23.8%;
+    padding-left: 23.8%;
+  }
+
+  aside {
+    display: initial;
+    width: 42%;
+    height: 100%;
+  }
+
+  .carousel,
+  .carousel-inner,
+  .carousel-item {
+    height: 100%;
+  }
+
+  .carousel-item-next,
+  .carousel-item-prev,
+  .carousel-item.active {
+    display: flex;
+    justify-content: center;
+  }
+
+  .carousel-indicators [data-bs-target] {
+    height: 9px;
+    width: 9px;
+    border-radius: 10px;
+    border: none;
+    background-color: #ffffff;
+    margin: 0 4.5px;
+  }
+
+  /*Main View*/
+
+  .card-container {
+    padding: 0 40px 0 0;
+    width: 100%;
+  }
+
+  .main {
+    margin-top: 120px;
+    padding-left: 262px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+  }
+
+  .main__header {
+    padding: 24px 40px 44px 0;
+    width: 100%;
+  }
+
+  .nav {
+    position: absolute;
+    top: -120px;
+    left: 0;
+    right: 0;
+  }
+
+  .nav__menu-button {
+    display: none;
+  }
+
+  .nav__title {
+    display: initial;
+    font-size: 28px;
+  }
+
+  .nav__logout {
+    display: initial;
+    margin-right: 32.32px;
+    font-size: 14px;
+  }
+
+  .nav__logout__icon {
+    margin-left: 16px;
+  }
+
+  .sidebar {
+    padding: 32px 31px 20px 40px;
+    width: 262px;
+    z-index: 1;
+    left: 0;
+  }
+
+  .card {
+    width: 32%;
+  }
+
+  .card.card--list-view {
+    width: 61%;
+    margin: auto;
+    margin-bottom: 24px;
+  }
+
+  .logout {
+    display: none;
+  }
+}
