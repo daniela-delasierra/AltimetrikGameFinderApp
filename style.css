@@ -78,8 +78,12 @@ input:-webkit-autofill:focus {
   display: none;
 }
 
-.m-top-62 {
-  margin-top: -62px;
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.top-166 {
+  top: 166px !important ;
 }
 
 /*Login View Style*/
@@ -358,7 +362,7 @@ input:-webkit-autofill:focus {
 
 .nav {
   width: 100%;
-  position: relative;
+  position: fixed;
   align-items: center;
   padding: 32px 40px 32px 34px;
   z-index: 2;
@@ -407,6 +411,7 @@ input:-webkit-autofill:focus {
   display: flex;
   justify-content: space-between;
   position: relative;
+  margin-top: 104px;
 }
 
 .main__header-container {
@@ -431,12 +436,18 @@ input:-webkit-autofill:focus {
 .card {
   background-color: #303030;
   margin-bottom: 24px;
+  border: none;
 }
 
-.card__img {
-  min-height: 217px;
-  background: #303030 url(assets/img/login-img.png) no-repeat center;
+.card__img-container {
+  background: #303030 url(assets/img/image-not-found.jpg) no-repeat center;
   background-size: cover;
+}
+
+.card__img-container__img {
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 1/0.6;
 }
 
 .card__content {
@@ -451,6 +462,11 @@ input:-webkit-autofill:focus {
 .card__info__title {
   font-size: 23px;
   cursor: pointer;
+  margin-bottom: 3px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 
 .info__row {
@@ -473,7 +489,11 @@ input:-webkit-autofill:focus {
   margin-top: 13px;
 }
 
-.card__footer__position {
+.card__footer_icons {
+  display: flex;
+}
+
+.card__footer__position-info {
   font-weight: 700;
 }
 
@@ -490,6 +510,7 @@ input:-webkit-autofill:focus {
 
 .game-description {
   display: none;
+  overflow-y: scroll;
 }
 
 /*Main View Menu*/
@@ -499,17 +520,17 @@ input:-webkit-autofill:focus {
   background-color: #151515;
   width: 100%;
   z-index: 3;
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: -769px;
   flex-grow: 2;
-  transition: all ease-in 0.7s;
+  transition: all ease-in 0.6s;
+  overflow: scroll;
 }
 
 .sidebar.show {
-  overflow: visible;
-  transition: all ease-in 0.7s;
+  transition: all ease-in 0.6s;
   left: 0;
   height: 100%;
 }
@@ -577,10 +598,187 @@ input:-webkit-autofill:focus {
 }
 
 .logout {
+  margin-top: 100px;
+}
+
+/*Game Modal*/
+
+.game {
   display: flex;
-  position: absolute;
+  flex-direction: column;
+  position: fixed;
+  top: 104px;
   bottom: 0;
-  margin-bottom: 100px;
+  right: 0;
+  left: 0;
+  background-color: #303030;
+  overflow: scroll;
+}
+
+.game__background-img {
+  background-size: cover;
+  height: 330px;
+}
+
+.game__info {
+  position: absolute;
+  top: 0;
+  padding: 26px 40px;
+  width: 100%;
+}
+
+.game-info-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.game__info__icons-container {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  margin-bottom: 14px;
+}
+
+.game__info__game-tags,
+.buttons-container {
+  height: 111px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.game__info__title {
+  font-size: 40px;
+  margin-bottom: 36px;
+}
+
+.game-tag {
+  width: 108px;
+  background-color: #ffffff;
+  font-weight: 400px;
+  color: #303030;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.game-position {
+  margin-right: 5px;
+}
+
+.buy-button,
+.wish-list-button {
+  width: 108px;
+  border-radius: 10px;
+  display: flex;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.buy-button {
+  border: solid 1px #979797;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buy-button__link,
+.game-feedback__link {
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.buy-button--upper-text {
+  font-size: 18px;
+}
+.add-icon {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 33px;
+}
+
+.wish-list-button {
+  background-image: linear-gradient(to top, #2bb34f, #7cd235);
+}
+
+.game-info__description {
+  font-size: 14px;
+  line-height: 19px;
+  margin-bottom: 32px;
+}
+
+.feedback-buttons {
+  height: 104px;
+}
+
+.game-feedback__button {
+  background-color: #515151;
+  border-radius: 10px;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.game-feedback__link {
+  margin-right: 15px;
+}
+
+#media-files {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.media__img {
+  width: 48%;
+  aspect-ratio: 1 / 0.6;
+  margin-top: 10px;
+}
+.media__img::after {
+  content: "View all ...";
+}
+
+.media__video {
+  width: 100%;
+  aspect-ratio: 1.8 / 1;
+}
+
+.img-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.game-subtitle,
+.game-detail__info {
+  color: #939393;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 16px;
+  margin-bottom: 4px;
+}
+
+.game-detail__info {
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (min-width: 768px) {
@@ -646,6 +844,7 @@ input:-webkit-autofill:focus {
   .sidebar {
     width: 303px;
     padding: 34px 22.25px 20px 40px;
+    overflow: initial;
   }
 
   .sidebar__header__icon {
@@ -693,11 +892,12 @@ input:-webkit-autofill:focus {
     background-color: #303030;
   }
 
-  .card-container {
+  .cards-container {
     padding: 0 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    min-height: 100vh;
   }
 
   .main__header-container {
@@ -706,6 +906,78 @@ input:-webkit-autofill:focus {
 
   .main__header {
     padding-bottom: 30px;
+    margin-top: 120px;
+  }
+
+  .game-info-container {
+    flex-direction: column;
+    width: fit-content;
+    align-items: flex-start;
+  }
+
+  .game__info {
+    top: 16px;
+    bottom: 0;
+    padding: 39px 30px 65px 30px;
+  }
+
+  .game__info__game-tags {
+    margin-bottom: 34px;
+  }
+
+  .game-info__description {
+    width: 80.5%;
+  }
+
+  .game-tag,
+  .buy-button {
+    margin-right: 20px;
+  }
+
+  .game-tag {
+    height: 27px;
+  }
+
+  .row-info {
+    max-width: 48%;
+  }
+
+  .buttons-container,
+  .game__info__game-tags {
+    flex-direction: row;
+    height: fit-content;
+  }
+
+  .feedback-buttons {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    width: 45%;
+  }
+
+  .game-feedback__button {
+    width: 141px;
+    margin-right: 18px;
+  }
+
+  #media-files {
+    margin: 0;
+    width: 54%;
+    position: relative;
+    bottom: 40px;
+  }
+
+  #game-detail {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 243px;
+    width: 44.5%;
+    margin-top: 32px;
+  }
+
+  .wrapper {
+    flex-direction: row-reverse;
+    justify-content: space-between;
   }
 
   /*for stacked view*/
@@ -715,11 +987,15 @@ input:-webkit-autofill:focus {
     border-radius: 10px;
   }
 
-  .card__img {
+  .card__img-container {
     display: flex;
-    flex-grow: 1;
     border-radius: 10px 10px 0 0;
     cursor: pointer;
+  }
+
+  .card__img-container__img {
+    border-radius: 10px 10px 0 0;
+    pointer-events: none;
   }
 
   .card__content {
@@ -732,6 +1008,7 @@ input:-webkit-autofill:focus {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    width: 60%;
   }
 
   .card__footer {
@@ -747,14 +1024,21 @@ input:-webkit-autofill:focus {
     padding-left: 10px;
   }
 
+  .card:last-child {
+    margin-right: auto;
+    margin-left: 2%;
+  }
+
   /* view list */
 
   .card.card--list-view {
     width: 100%;
+    aspect-ratio: 100 / 60;
   }
 
-  .card__img--list-view {
+  .card__img-container--list-view {
     min-height: 315px;
+    flex-grow: 1;
   }
 
   .card__content.card__content--list-view {
@@ -784,7 +1068,7 @@ input:-webkit-autofill:focus {
     margin: 0;
   }
 
-  .card__footer__position.card__footer__position--list-view {
+  .card__footer__position-info.card__footer__position-info--list-view {
     position: absolute;
     bottom: 0;
     right: 160px;
@@ -792,14 +1076,29 @@ input:-webkit-autofill:focus {
 
   .game-description.game-description--list-view {
     display: initial;
-    padding: 0 74px 31px 40px;
-    overflow: none;
+    padding: 0 74px 0 40px;
+    margin-bottom: 24px;
     font-size: 14px;
     font-weight: 400;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    text-align: justify;
   }
 }
 
 @media screen and (min-width: 1440px) {
+  .bg-disabled {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.78);
+    z-index: 3;
+  }
+
   body {
     justify-content: center;
     align-items: center;
@@ -865,7 +1164,7 @@ input:-webkit-autofill:focus {
 
   /*Main View*/
 
-  .card-container {
+  .cards-container {
     padding: 0 40px 0 0;
     width: 100%;
   }
@@ -881,11 +1180,12 @@ input:-webkit-autofill:focus {
   .main__header {
     padding: 24px 40px 44px 0;
     width: 100%;
+    margin-top: 0;
   }
 
   .nav {
-    position: absolute;
-    top: -120px;
+    position: fixed;
+    top: 0;
     left: 0;
     right: 0;
   }
@@ -928,5 +1228,104 @@ input:-webkit-autofill:focus {
 
   .logout {
     display: none;
+  }
+
+  .game {
+    z-index: 4;
+    width: 80%;
+    height: 78%;
+    margin: auto;
+    border-radius: 10px;
+    top: 0;
+    overflow-x: hidden;
+  }
+
+  .row-info {
+    max-width: 33%;
+    margin-right: 20px;
+  }
+
+  #game-detail {
+    margin-bottom: 30px;
+    align-content: flex-start;
+  }
+  .game__info {
+    width: 100%;
+    top: 0;
+    padding: 20px 20px 65px 79px;
+  }
+
+  .game__info__game-tags {
+    margin-bottom: 34px;
+  }
+
+  .game-info__description {
+    width: 44.5%;
+  }
+
+  .game-tag,
+  .buy-button {
+    margin-right: 20px;
+  }
+
+  .game-tag {
+    height: 27px;
+  }
+
+  .buttons-container,
+  .game__info__game-tags {
+    flex-direction: row;
+    height: fit-content;
+  }
+
+  .feedback-buttons {
+    justify-content: left;
+  }
+
+  .game-feedback__button {
+    width: 141px;
+    margin-right: 24px;
+  }
+
+  #media-files {
+    position: absolute;
+    top: 169px;
+    right: 0;
+    margin-right: 91px;
+    width: 35%;
+  }
+
+  .wrapper {
+    justify-content: flex-end;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  .sidebar {
+    width: 330px;
+  }
+
+  .sidebar__nav__title {
+    font-size: 26px;
+  }
+  .link {
+    font-size: 26px;
+  }
+
+  .nav__title {
+    font-size: 32px;
+  }
+
+  .nav__logout {
+    font-size: 22px;
+  }
+
+  .bi {
+    width: 22px;
+    height: 22px;
+  }
+
+  .card__info__title {
+    font-size: 26px;
   }
 }
