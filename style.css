@@ -86,6 +86,44 @@ input:-webkit-autofill:focus {
   top: 166px !important ;
 }
 
+.play-video__button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  background-color: rgb(0, 0, 0, 0.5);
+  position: absolute;
+  right: 10px;
+  bottom: 5%;
+  border: 1px solid rgb(0, 0, 0);
+  padding: 4px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.youtube-icon {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.view-all {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 10px;
+}
+
 /*Login View Style*/
 
 .container--brown {
@@ -462,7 +500,7 @@ input:-webkit-autofill:focus {
 .card__info__title {
   font-size: 23px;
   cursor: pointer;
-  margin-bottom: 3px;
+  margin-bottom: 10px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -488,9 +526,21 @@ input:-webkit-autofill:focus {
   justify-content: space-between;
   margin-top: 13px;
 }
-
-.card__footer_icons {
+/* 
+.card__footer__icons {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+} */
+
+.card__platform-icons {
+  width: 60px;
+  height: 20px;
+  overflow: hidden;
+}
+
+.card__platform-icons svg:nth-child(3) {
+  margin-right: 0;
 }
 
 .card__footer__position-info {
@@ -615,6 +665,10 @@ input:-webkit-autofill:focus {
   overflow: scroll;
 }
 
+#close-button {
+  cursor: pointer;
+}
+
 .game__background-img {
   background-size: cover;
   height: 330px;
@@ -625,6 +679,17 @@ input:-webkit-autofill:focus {
   top: 0;
   padding: 26px 40px;
   width: 100%;
+}
+
+.game__info .game__info__icons-container .card__platform-icons {
+  width: initial;
+  height: 25px;
+}
+
+.game__info .game__info__icons-container .card__platform-icons .platform-icon {
+  margin-left: 0;
+  margin-right: 12px;
+  height: 20px;
 }
 
 .game-info-container {
@@ -638,6 +703,10 @@ input:-webkit-autofill:focus {
   justify-content: space-between;
   align-content: center;
   margin-bottom: 14px;
+}
+.platform-icon {
+  margin-right: 8px;
+  height: 13px;
 }
 
 .game__info__game-tags,
@@ -670,11 +739,12 @@ input:-webkit-autofill:focus {
 
 .buy-button,
 .wish-list-button {
-  width: 108px;
   border-radius: 10px;
   display: flex;
   padding: 8px 10px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .buy-button {
@@ -682,17 +752,25 @@ input:-webkit-autofill:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 20px;
+  padding-right: 15px;
 }
 
 .buy-button__link,
 .game-feedback__link {
   font-size: 12px;
   line-height: 17px;
+  margin-right: 12px;
 }
 
 .buy-button--upper-text {
   font-size: 18px;
 }
+
+.gift-icon {
+  display: none;
+}
+
 .add-icon {
   font-size: 24px;
   font-weight: bold;
@@ -739,16 +817,23 @@ input:-webkit-autofill:focus {
 
 .media__img {
   width: 48%;
-  aspect-ratio: 1 / 0.6;
   margin-top: 10px;
-}
-.media__img::after {
-  content: "View all ...";
+  position: relative;
+  cursor: pointer;
 }
 
-.media__video {
+.media__img:first-child {
   width: 100%;
   aspect-ratio: 1.8 / 1;
+}
+
+.last-preview-img {
+  margin-top: 0;
+  height: 100%;
+}
+
+.game-video {
+  position: relative;
 }
 
 .img-container {
@@ -769,10 +854,13 @@ input:-webkit-autofill:focus {
 .game-detail__info {
   color: #ffffff;
   margin-bottom: 20px;
+  display: block;
+  word-break: break-all;
 }
 
 .underlined {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .wrapper {
@@ -781,11 +869,39 @@ input:-webkit-autofill:focus {
   flex-direction: column;
 }
 
+.bg-disabled {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.78);
+  z-index: -1;
+}
+
+#spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.card p::-moz-selection,
+.game p::-moz-selection {
+  color: #67aa34;
+}
+
+.card p::selection,
+.game p::selection {
+  background-color: #67aa34;
+}
+
 @media screen and (min-width: 768px) {
   /*Login View*/
 
   .desktop-container {
-    display: initial;
+    display: flex;
+    align-items: center;
   }
 
   .nav {
@@ -884,7 +1000,9 @@ input:-webkit-autofill:focus {
   }
 
   #view-stacked:hover > .view-button,
-  #view-list:hover > .view-button {
+  #view-stacked > .view-button:checked,
+  #view-list:hover > .view-button,
+  #view-list > .view-button:checked {
     background-color: #7d7d7d;
   }
 
@@ -915,10 +1033,29 @@ input:-webkit-autofill:focus {
     align-items: flex-start;
   }
 
+  .modal-platform-icon {
+    margin-left: 0;
+    margin-right: 15px;
+  }
+
   .game__info {
     top: 16px;
     bottom: 0;
     padding: 39px 30px 65px 30px;
+  }
+
+  .card__platform-icons {
+    display: flex;
+    height: 13px;
+    overflow: hidden;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: 80px;
+  }
+
+  .platform-icon {
+    margin-right: 0;
+    margin-left: 12px;
   }
 
   .game__info__game-tags {
@@ -970,7 +1107,7 @@ input:-webkit-autofill:focus {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 243px;
+    height: 260px;
     width: 44.5%;
     margin-top: 32px;
   }
@@ -980,10 +1117,13 @@ input:-webkit-autofill:focus {
     justify-content: space-between;
   }
 
+  .gift-icon {
+    display: initial;
+  }
+
   /*for stacked view*/
   .card {
     width: 48%;
-    min-width: 331px;
     border-radius: 10px;
   }
 
@@ -1015,18 +1155,29 @@ input:-webkit-autofill:focus {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    margin-left: 47px;
     margin-top: 11px;
+    margin-left: 10%;
   }
+
+  /* .card__footer__icons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 100%;
+    justify-content: space-between;
+  } */
 
   .date,
   .genres {
     padding-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .card:last-child {
     margin-right: auto;
-    margin-left: 2%;
+    margin-left: 4%;
   }
 
   /* view list */
@@ -1056,6 +1207,7 @@ input:-webkit-autofill:focus {
   .info__row.info__row--list-view {
     margin-right: 40px;
     margin-bottom: 0;
+    max-width: 40%;
   }
 
   .date.date--list-view,
@@ -1077,7 +1229,7 @@ input:-webkit-autofill:focus {
   .game-description.game-description--list-view {
     display: initial;
     padding: 0 74px 0 40px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     font-size: 14px;
     font-weight: 400;
     overflow: hidden;
@@ -1090,12 +1242,6 @@ input:-webkit-autofill:focus {
 
 @media screen and (min-width: 1440px) {
   .bg-disabled {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.78);
     z-index: 3;
   }
 
@@ -1220,6 +1366,10 @@ input:-webkit-autofill:focus {
     width: 32%;
   }
 
+  .card:last-child {
+    margin-left: 2%;
+  }
+
   .card.card--list-view {
     width: 61%;
     margin: auto;
@@ -1239,9 +1389,21 @@ input:-webkit-autofill:focus {
     top: 0;
     overflow-x: hidden;
   }
+  .game::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .game::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .game::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    background-clip: content-box;
+  }
 
   .row-info {
-    max-width: 33%;
     margin-right: 20px;
   }
 
@@ -1297,6 +1459,10 @@ input:-webkit-autofill:focus {
 
   .wrapper {
     justify-content: flex-end;
+  }
+
+  #spinner-container {
+    left: 262px;
   }
 }
 
