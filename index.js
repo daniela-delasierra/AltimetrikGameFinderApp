@@ -657,4 +657,10 @@ const showPlatforms = (platforms) => {
   return svgs;
 };
 
-const lastSearches = [];
+const updateLastSearches = (lastSearch) => {
+  const lastSearches = [];
+  lastSearches.push(lastSearch);
+  if (lastSearches.length > 3) {
+    lastSearches.splice(1, 0);
+  }
+};

@@ -7,6 +7,39 @@
   box-sizing: border-box;
 }
 
+.mdc-snackbar {
+  height: 48px;
+  bottom: initial !important;
+  top: 0;
+}
+
+.mdc-snackbar__surface {
+  max-width: 100%;
+  width: 630px;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.invalid,
+.invalid:first-child,
+.invalid input:-webkit-autofill {
+  border-color: #e07979 !important;
+  color: #e07979 !important;
+  -webkit-text-fill-color: #e07979 !important;
+}
+
+.mdc-snackbar__surface--success {
+  background-color: #88da44 !important;
+}
+
+.mdc-snackbar__surface--alert {
+  background-color: #edae74 !important;
+}
+
+.mdc-snackbar__surface--error {
+  background-color: #ed7474 !important;
+}
+
 body {
   background-color: #151515;
   min-height: 100vh;
@@ -165,6 +198,7 @@ input:-webkit-autofill:focus {
   border: 1px solid #8f8f8f;
   margin-bottom: 32px;
   border-radius: 8px;
+  position: relative;
 }
 
 .login__input:focus-within {
@@ -199,6 +233,16 @@ input:-webkit-autofill:focus {
   color: #ffffff;
   margin: 0 20px;
   font-size: 14px;
+}
+
+#email-error-msg,
+#password-error-msg {
+  position: absolute;
+  bottom: -26px;
+  color: #e07979;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19px;
 }
 
 .login__footer__row {
@@ -1272,7 +1316,10 @@ input:-webkit-autofill:focus {
   }
 
   .login__input {
-    margin-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  .login__footer:first-child {
+    margin-top: 3px;
   }
 
   .division {
