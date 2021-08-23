@@ -1,4 +1,4 @@
-const server = "http://localhost:3000";
+const AUTH_SERVER = "http://localhost:3000";
 const loginButton = document.getElementById("login-button");
 const snackbar = new mdc.snackbar.MDCSnackbar(
   document.querySelector(".mdc-snackbar")
@@ -60,7 +60,7 @@ const userLogin = async (e) => {
   resetInputStyle();
   try {
     const response = await axios.post(
-      `${server}/login`,
+      `${AUTH_SERVER}/login`,
       {
         email: email.value,
         password: password.value,
@@ -75,7 +75,7 @@ const userLogin = async (e) => {
     }
     if (response.data.hasOwnProperty("accessToken")) {
       document.cookie = `token=${response.data.accessToken}`;
-      window.location.replace("/main.html");
+      window.location.replace("./main.html");
     }
   } catch (error) {
     if (error?.response?.data == "Email format is invalid") {
